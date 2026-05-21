@@ -1,0 +1,26 @@
+# Railway native config — https://docs.railway.com/reference/config-as-code
+#
+# Env vars are NOT defined here. Railway pulls them from the service's
+# Variables UI (or a linked shared variable group). The list below is for
+# humans wiring up the service:
+#
+#   OPENAI_API_KEY              required — OpenAI auth
+#   NEXT_PUBLIC_SUPABASE_URL    optional — same URL as the FE; SUPABASE_URL also accepted
+#   SUPABASE_SERVICE_ROLE_KEY   optional — service-role key for direct writes (RLS bypass)
+#   ALLOWED_ORIGINS             required in prod — comma-separated CORS origins
+#                               (e.g. https://ekspertika.vercel.app,https://...)
+#   INTERNAL_API_TOKEN          required in prod — shared bearer token w/ Next.js
+#   COMPLIANCE_MODEL            optional — defaults to gpt-4o-mini
+#
+# Railway injects $PORT automatically; the Dockerfile CMD already uses it.
+
+[build]
+builder = "DOCKERFILE"
+dockerfilePath = "./Dockerfile"
+
+[deploy]
+numReplicas = 1
+restartPolicyType = "ON_FAILURE"
+restartPolicyMaxRetries = 5
+healthcheckPath = "/health"
+healthcheckTimeout = 30

@@ -1,0 +1,66 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+dist/
+*.egg-info/
+*.egg
+
+# Virtual environments
+.venv/
+venv/
+env/
+
+# Environment / secrets
+.env
+.env.local
+.env.*.local
+*.env.local*
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Testing / coverage
+.pytest_cache/
+.coverage
+htmlcov/
+.ruff_cache/
+.mypy_cache/
+
+# Output artifacts
+*.xlsx
+!tests/**/*.xlsx
+
+# Chroma vector store — regenerable from data/str_texts/ + str_registry.json
+# via scripts/ingest_str.py (python-be-e6n.5). chromadb is a dev-only [rag]
+# extra; the persistent store is dev-only too.
+vector_store/
+
+# STR source PDFs / HTML downloaded from e-tar.lt by scripts/download_str.py
+# (python-be-e6n.1 / e6n.9). Source-of-truth lives on e-tar; the registry
+# tracks URLs so we don't need to commit binaries.
+data/str_texts/*.pdf
+data/str_texts/*.html
+data/str_texts/*.docx
+!data/str_texts/.gitkeep
+
+# Stale nested copy of old FE — review and remove manually
+ekspertika/
+
+# Beads / Dolt files (added by bd init)
+.dolt/
+*.db
+.beads-credential-key
+
+# Vault symlink — docs live in ~/Projects/my/vault, not in this repo
+/vault

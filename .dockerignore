@@ -1,0 +1,65 @@
+# Python build artefacts
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+dist/
+*.egg-info/
+*.egg
+
+# Virtual environments — the image builds its own
+.venv/
+venv/
+env/
+
+# Test / lint caches
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+.coverage
+htmlcov/
+
+# Secrets & local env
+.env
+.env.local
+.env.*.local
+*.env.local*
+
+# Git / VCS / agent metadata
+.git/
+.gitignore
+.beads/
+.dolt/
+*.db
+.beads-credential-key
+.claude/
+
+# OS / editor cruft
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Local-only code paths (not part of the FastAPI runtime)
+tests/
+ui/
+main.py
+ekspertika/
+
+# Vault symlink — docs live elsewhere
+vault
+
+# Docs (kept out of the image; README is the only one we need at runtime, and
+# even that we don't actually need in the container — strip them all).
+*.md
+
+# Output artefacts from local runs
+*.xlsx
+
+# Don't ship the Dockerfile itself
+Dockerfile
+.dockerignore

@@ -1,0 +1,76 @@
+[project]
+name = "str-checker"
+version = "0.1.0"
+description = "Lithuanian construction document compliance checker"
+requires-python = ">=3.11"
+dependencies = [
+    # Runtime only — what the FastAPI image needs.
+    "openai>=1.30.0",
+    "pydantic>=2.5.0",
+    "pymupdf>=1.24.0",
+    "tenacity>=8.3.0",
+    "python-dotenv>=1.0.0",
+    "fastapi>=0.111.0",
+    "uvicorn[standard]>=0.30.0",
+    "python-multipart>=0.0.9",
+    "supabase>=2.29.0",
+]
+
+[project.optional-dependencies]
+# Legacy CLI (main.py) + Streamlit UI (ui/streamlit_app.py) + Excel report
+# (app/services/excel_reporter.py) + STR token checker (app/services/str_checker.py).
+# Not needed by the deployed FastAPI service. Install with `uv sync --extra legacy`
+# (or `pip install '.[legacy]'`).
+legacy = [
+    "streamlit>=1.35.0",
+    "openpyxl>=3.1.2",
+    "tiktoken>=0.7.0",
+    "rich>=13.7.0",
+]
+
+# Tooling for the STR downloader (scripts/download_str.py, used by
+# python-be-e6n.1 representative subset and python-be-e6n.9 full scraper).
+# Stays out of the deployed FastAPI image — install only when running the
+# scraper: `uv sync --extra scraping`.
+# httpx is already pulled in transitively via supabase, but listed here
+# explicitly so the contract is self-documenting.
+scraping = [
+    "httpx>=0.27.0",
+    "beautifulsoup4>=4.12.0",
+    "lxml>=5.0",
+]
+
+# RAG knowledge base — Chroma vector store + ingest script
+# (scripts/ingest_str.py, app/services/vector_store.py). Chroma is heavy
+# (~250 MB transitively) and runs in-process; it stays out of the deployed
+# runtime image until python-be-e6n.7 wires RAGChecker into the API path.
+# Install only when ingesting STRs or running vector_store tests:
+# `uv sync --extra rag`.
+rag = [
+    "chromadb>=0.5.0",
+    # Chroma requires `opentelemetry-exporter-otlp-proto-grpc` without a version
+    # pin; uv's resolver landed on 1.11.1 which ships an ancient protobuf that
+    # crashes against protobuf>=4. Force a recent build that works with
+    # protobuf 6.x. See chroma-core/chroma#... and otel-python release notes.
+    "opentelemetry-exporter-otlp-proto-grpc>=1.27.0",
+]
+
+[dependency-groups]
+dev = [
+    "pytest>=8.0.0",
+    "pytest-asyncio>=0.24.0",
+]
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "N"]
+
+[tool.pytest.ini_options]
+asyncio_mode = "auto"
+testpaths = ["tests"]
+python_files = ["test_*.py"]
+python_classes = ["Test*"]
+python_functions = ["test_*"]

@@ -1,0 +1,85 @@
+{
+  "laws": [
+    "LR Statybos įstatymas",
+    "LR Aplinkos apsaugos įstatymas",
+    "LR Saugos ir sveikatos darbe įstatymas",
+    "LR Žemės įstatymas",
+    "LR Teritorijų planavimo įstatymas",
+    "LR Atliekų tvarkymo įstatymas",
+    "Statybinių atliekų tvarkymo taisyklės",
+    "ES Reglamentas Nr. 305/2011",
+    "LR Specialiųjų žemės naudojimo sąlygų įstatymas",
+    "LR Architektūros įstatymas"
+  ],
+  "str": {
+    "administrative": [
+      "STR 1.01.02:2016",
+      "STR 1.01.03:2017",
+      "STR 1.01.04:2015",
+      "STR 1.01.08:2002",
+      "STR 1.02.01:2017",
+      "STR 1.04.04:2017",
+      "STR 1.05.01:2017",
+      "STR 1.06.01:2016",
+      "STR 1.12.06:2002"
+    ],
+    "essential_requirements": [
+      "STR 2.01.01(1):2005",
+      "STR 2.01.01(2):1999",
+      "STR 2.01.01(3):1999",
+      "STR 2.01.01(4):2008",
+      "STR 2.01.01(5):2008",
+      "STR 2.01.01(6):2008"
+    ],
+    "performance": ["STR 2.01.02:2016", "STR 2.01.06:2009", "STR 2.01.07:2003"],
+    "buildings": ["STR 2.02.01:2004", "STR 2.03.01:2019"],
+    "structures": [
+      "STR 2.04.01:2018",
+      "STR 2.05.03:2003",
+      "STR 2.05.04:2003",
+      "STR 2.05.05:2005",
+      "STR 2.05.06:2005",
+      "STR 2.05.08:2005",
+      "STR 2.05.09:2005"
+    ],
+    "engineering_systems": [
+      "STR 2.07.01:2003",
+      "STR 2.09.02:2005",
+      "STR 2.01.12:2024"
+    ]
+  },
+  "standards": [
+    "HN 42:2009",
+    "HN 69:2003",
+    "HN 98:2000",
+    "GSPR",
+    "GPGST",
+    "LST 1516:2015",
+    "LST EN 17050-1:2010",
+    "ISO 21542:2011",
+    "ISO 23599:2012"
+  ],
+  "technical_rules": [
+    "ST 2124555837.01:2021",
+    "ST121895674.205.20.02:2014",
+    "statybostaisykles.lt"
+  ],
+  "required_documents": [
+    "Projektavimo užduotis",
+    "Įmonės registravimo pažymėjimas",
+    "PV ir PDV atestatai",
+    "Civilinės atsakomybės draudimas",
+    "Topografinė nuotrauka",
+    "Projekto vadovo paskyrimo dokumentas",
+    "Gyventojų sprendimas",
+    "NT registro išrašas – statiniai",
+    "NT registro išrašas – sklypas",
+    "Kadastro byla",
+    "Įgaliojimas",
+    "Rašytiniai pritarimai",
+    "Investicijų planas",
+    "Energijos sertifikatas",
+    "Architektūros reikalavimai",
+    "Programinės įrangos sąrašas"
+  ]
+}
